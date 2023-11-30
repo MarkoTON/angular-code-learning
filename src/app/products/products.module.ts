@@ -7,7 +7,7 @@ import { ProductsFilterComponent } from './components/products-filter/products-f
 
 
 @NgModule({
-  declarations: [ProductsPageComponent, ProductsListPageComponent, ProductsFilterComponent, ProductsModule],
+  declarations: [ProductsPageComponent, ProductsListPageComponent, ProductsFilterComponent],
   imports: [
     CommonModule
   ]
