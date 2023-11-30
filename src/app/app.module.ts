@@ -4,17 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { ProductsFilterComponent } from './products/components/products-filter/products-filter.component';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ProductsFilterComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ProductsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
