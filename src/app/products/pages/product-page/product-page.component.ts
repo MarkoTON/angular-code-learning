@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  selector: 'app-products-page',
-  templateUrl: './products-page.component.html',
-  styleUrls: ['./products-page.component.scss']
+  selector: 'app-product-page',
+  templateUrl: './product-page.component.html',
+  styleUrls: ['./product-page.component.scss']
 })
-export class ProductsPageComponent {
+export class ProductPageComponent {
   id!:number;
   constructor(private route: ActivatedRoute) { }
 
