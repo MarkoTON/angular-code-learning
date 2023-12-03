@@ -6,6 +6,10 @@ import { ProductPageComponent } from './pages/product-page/product-page.componen
 const ProductsRoutes: Routes = [
   { path: '', component: ProductsListPageComponent },
   { path: ':id', component: ProductPageComponent },
+  // {
+  //   path: 'products',
+  //   loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
+  // },
 ];
 
 @NgModule({
