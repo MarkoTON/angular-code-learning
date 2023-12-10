@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <div class="logo">
+    <img src="putanja/do/logotipa.png" alt="Logo">
+  </div>
+  <nav>
+    <a class="nav-link" routerLinkActive="active" [routerLink]="['/']" >Home</a>
+    <a class="nav-link" [routerLink]="['/products']" routerLinkActive="active">Products</a>
+    <a class="nav-link" [routerLink]="['/about']" routerLinkActive="active" >About Us</a>
+    <a class="nav-link" [routerLink]="['/contact']" routerLinkActive="active" >Contact</a>
+  </nav>
+  <div class="cart-icon">
+    <mat-icon>shopping_cart</mat-icon>
+  </div>
+</mat-toolbar>
