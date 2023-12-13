@@ -6,10 +6,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { NavbarComponent } from '../components/navbar/navbar.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [],
+  declarations: [NavbarComponent],
   imports: [
+    RouterModule,
     CommonModule,
     MatSlideToggleModule,
     MatToolbarModule,
@@ -19,13 +22,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatFormFieldModule
   ],
   exports:[
+    RouterModule,
     CommonModule,
     MatSlideToggleModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    NavbarComponent
   ]
 })
 export class SharedModule { }
