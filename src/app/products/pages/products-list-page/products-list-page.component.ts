@@ -15,7 +15,6 @@ export class ProductsListPageComponent {
     console.log(this.productsHttp.getAll())
     this.productsHttp.getAll().subscribe((data)=> {
       this.products = data.products;
-      console.log(this.products);
     })
   }
 }
