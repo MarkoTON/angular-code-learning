@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-product-list-item',
@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-list-item.component.scss']
 })
 export class ProductListItemComponent {
+  @Input() item:any;
+
+  constructor(){}
+
+  ngOnInit(): void {
+    console.log(this.item);
+  }
 
 }
