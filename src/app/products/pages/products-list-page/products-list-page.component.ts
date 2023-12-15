@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProductsService } from '../../service/products.service';
 
 @Component({
   selector: 'app-products-list-page',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./products-list-page.component.scss']
 })
 export class ProductsListPageComponent {
+
+  constructor(products: ProductsService){
+  }
 
 }
