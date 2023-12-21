@@ -1,4 +1,7 @@
-<div *ngFor="let product of products">
-  <app-product-list-item [item]="product"></app-product-list-item>
-</div>
-
+<mat-grid-list cols="3" rowHeight="2:1">
+  <ng-container *ngFor="let product of products">
+    <mat-grid-tile>
+    <app-product-list-item [item]="product"></app-product-list-item>
+    </mat-grid-tile>
+  </ng-container>
+</mat-grid-list>
