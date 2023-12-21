@@ -9,8 +9,6 @@ export class ProductsService {
 
   getAll(): Observable<ProductsResponse> {
     const apiUrl = `https://dummyjson.com/products`;
-    let products = this.http.get(apiUrl)
-    console.log(products);
     return this.http.get<ProductsResponse>(apiUrl);
   }
 }

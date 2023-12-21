@@ -9,12 +9,12 @@ import { Product } from '../../product';
 export class ProductsListPageComponent {
   products: Product[] = [];
 
-  constructor(private productsHttp: ProductsService){
+  constructor(private productsService: ProductsService){
   }
 
   ngOnInit(): void {
-    console.log(this.productsHttp.getAll())
-    this.productsHttp.getAll().subscribe((data)=> {
+    console.log(this.productsService.getAll())
+    this.productsService.getAll().subscribe((data)=> {
       console.log(data);
       this.products = data.products;
       console.log(this.products)
