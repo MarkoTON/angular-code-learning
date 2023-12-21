@@ -5,13 +5,16 @@ import { ProductsListPageComponent } from './pages/products-list-page/products-l
 import { ProductsFilterComponent } from './components/products-filter/products-filter.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { ProductsService } from './service/products.service';
+import { ProductListItemComponent } from './pages/product-list-item/product-list-item.component';
 
 @NgModule({
-  declarations: [ProductPageComponent, ProductsListPageComponent, ProductsFilterComponent],
+  declarations: [ProductPageComponent, ProductsListPageComponent, ProductsFilterComponent, ProductListItemComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,
     SharedModule
-  ]
+  ],
+  providers:[ProductsService]
 })
 export class ProductsModule { }

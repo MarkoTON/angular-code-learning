@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [NavbarComponent],
@@ -19,7 +20,8 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule
   ],
   exports:[
     RouterModule,
@@ -30,7 +32,8 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    NavbarComponent
+    NavbarComponent,
+    HttpClientModule
   ]
 })
 export class SharedModule { }
