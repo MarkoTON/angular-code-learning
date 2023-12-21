@@ -5,6 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule
   ],
   exports:[
     RouterModule,
@@ -33,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatFormFieldModule,
     NavbarComponent,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule
   ]
 })
 export class SharedModule { }
