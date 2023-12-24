@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { ProductsService } from '../../service/products.service';
 
 @Component({
   selector: 'app-product-page',
@@ -8,9 +9,13 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class ProductPageComponent {
   id!:number;
-  constructor(private route: ActivatedRoute) { }
+  product: Object = [];
+  constructor(private route: ActivatedRoute, private productsService: ProductsService) { }
 
   ngOnInit() {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.productsService.getProduct(String(this.id)).subscribe((res)=>{
+      this.product = res;
+    })
   }
 }

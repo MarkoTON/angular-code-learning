@@ -11,4 +11,9 @@ export class ProductsService {
     const apiUrl = `https://dummyjson.com/products`;
     return this.http.get<ProductsResponse>(apiUrl);
   }
+
+  getProduct(product:string){
+    const apiUrl = `https://dummyjson.com/products/${product}`;
+    return this.http.get<ProductsResponse>(apiUrl);
+  }
 }
