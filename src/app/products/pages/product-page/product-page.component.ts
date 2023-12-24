@@ -10,7 +10,7 @@ import { Product } from '../../product';
 })
 export class ProductPageComponent {
   id!: string;
-  product!: Product;
+  product?: Product;
 
   constructor(
     private route: ActivatedRoute,
