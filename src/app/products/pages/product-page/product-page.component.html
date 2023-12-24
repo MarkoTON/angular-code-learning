@@ -1,2 +1,18 @@
-<p>products-page works!</p>
-Id - {{id}}
+<mat-card class="product-card">
+  <mat-card-header>
+    <mat-card-title>{{product.title}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]='product!.images[0]' alt="Photo of a Shiba Inu" style="width: 100px;">
+  <mat-card-content>
+    <p>{{product.category}}</p>
+    <p>{{product.description}}</p>
+    <p>{{product.discountPercentage}}</p>
+    <p>{{product.rating}}</p>
+    <p>{{product.stock}}</p>
+    <p>{{product.thumbnail}}</p>
+    <p>{{product.thumbnail}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+  </mat-card-actions>
+  <mat-card-footer>{{product.price}}</mat-card-footer>
+</mat-card>
