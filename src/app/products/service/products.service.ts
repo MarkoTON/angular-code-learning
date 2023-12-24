@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ProductsResponse } from '../product';
+import { Product, ProductsResponse } from '../product';
 
 @Injectable()
 export class ProductsService {
@@ -12,8 +12,8 @@ export class ProductsService {
     return this.http.get<ProductsResponse>(apiUrl);
   }
 
-  getProduct(product:string){
+  getProduct(product: string): Observable<Product> {
     const apiUrl = `https://dummyjson.com/products/${product}`;
-    return this.http.get<ProductsResponse>(apiUrl);
+    return this.http.get<Product>(apiUrl);
   }
 }
