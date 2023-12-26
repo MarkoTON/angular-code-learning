@@ -9,7 +9,7 @@ import { Product } from '../../product';
   styleUrls: ['./product-page.component.scss'],
 })
 export class ProductPageComponent {
-  id!: string;
+  id!: number;
   product?: Product;
 
   constructor(
@@ -18,8 +18,8 @@ export class ProductPageComponent {
   ) {}
 
   ngOnInit() {
-    this.id = String(this.route.snapshot.paramMap.get('id'));
-    this.productsService.getProduct(this.id).subscribe((res) => {
+    this.id = +this.route.snapshot.paramMap.get('id')!;
+    this.productsService.getProductById(this.id).subscribe((res) => {
       console.log(res);
       this.product = res;
     });

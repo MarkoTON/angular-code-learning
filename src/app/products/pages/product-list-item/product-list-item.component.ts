@@ -7,10 +7,7 @@ import { Product } from '../../product';
   styleUrls: ['./product-list-item.component.scss']
 })
 export class ProductListItemComponent {
-Number(arg0: number|undefined): string|any[]|null|undefined {
-throw new Error('Method not implemented.');
-}
-  @Input() item!: Product | null;
+  @Input({ required: true }) item!: Product;
 
   constructor(){}
 

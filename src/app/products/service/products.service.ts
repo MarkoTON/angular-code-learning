@@ -12,7 +12,7 @@ export class ProductsService {
     return this.http.get<ProductsResponse>(apiUrl);
   }
 
-  getProduct(product: string): Observable<Product> {
+  getProductById(product: number): Observable<Product> {
     const apiUrl = `https://dummyjson.com/products/${product}`;
     return this.http.get<Product>(apiUrl);
   }
