@@ -7,7 +7,7 @@ import { Product } from '../../product';
   styleUrls: ['./product-list-item.component.scss']
 })
 export class ProductListItemComponent {
-  @Input() item!: Product | null;
+  @Input({ required: true }) item!: Product;
 
   constructor(){}
 
