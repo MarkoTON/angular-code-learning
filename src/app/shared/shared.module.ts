@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -25,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     MatGridListModule
   ],
-  exports:[
+  exports: [
     RouterModule,
     CommonModule,
     MatSlideToggleModule,
@@ -37,6 +37,9 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     HttpClientModule,
     MatGridListModule
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
-export class SharedModule { }
+export class SharedModule {}
