@@ -7,7 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-import { SwiperDirective } from './directive/swiper.directive';
+
+import { SwiperDirective } from '../app/directive/swiper.directive';
+
 // Step 1: Add the following line...
 import { register } from 'swiper/element/bundle';
 

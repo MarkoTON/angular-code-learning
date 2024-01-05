@@ -18,3 +18,9 @@ export interface Product {
   thumbnail: string;
   images: string[];
 }
+
+export interface ProductCard {
+  title: string;
+  description: string;
+  url: string;
+}
