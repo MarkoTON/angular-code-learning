@@ -1,53 +1,27 @@
-<mat-card class="product-card">
-  <mat-card-header>
-    <mat-card-title>{{product?.title}}</mat-card-title>
-  </mat-card-header>
-  <img *ngIf="product" mat-card-image [src]='product!.images[0]' alt="Photo of a Shiba Inu" style="width: 100px;">
-  <mat-card-content>
-    <p>{{product?.category}}</p>
-    <p>{{product?.description}}</p>
-    <p>{{product?.discountPercentage}}</p>
-    <p>{{product?.rating}}</p>
-    <p>{{product?.stock}}</p>
-    <p>{{product?.thumbnail}}</p>
-    <p>{{product?.thumbnail}}</p>
-  </mat-card-content>
-  <mat-card-actions>
-  </mat-card-actions>
-  <mat-card-footer>{{product?.price}}</mat-card-footer>
-</mat-card>
-
-
-<div class="container-fluid">
-  <div class="row">
-    <main class="col-8 px-0">
-
-      <!-- image -->
-      <swiper-container appSwiper #swiper [config]="swiperConfig" thumbs-swiper=".mySwiper2" (slidechange)="slideChange($event)">
-        <swiper-slide *ngFor="let item of contents">
-          <div class="ratio ratio-4x3" [ngStyle]="{background: 'url(' + item.url +') no-repeat top center / contain'}"></div>
-        </swiper-slide>
-      </swiper-container>
-      <!-- /image -->
-
-      <!-- thumbnails -->
-      <swiper-container appSwiper #swiperThumbs [config]="swiperThumbsConfig" class="mySwiper2" *ngIf="contents.length > 1">
-        <swiper-slide *ngFor="let item of contents">
-          <div class="ratio ratio-4x3" role="button" [ngStyle]="{background: 'red', width: 200+'px', height: 200+'px'}"></div>
-        </swiper-slide>
-      </swiper-container>
-      <!-- /thumbnails -->
-
-    </main>
-
-    <!-- description -->
-    <aside class="col-4 p-4">
-
-      <h3 [textContent]="contents[index].title"></h3>
-      <p [textContent]="contents[index].description"></p>
-
-    </aside>
-    <!-- /description -->
-
-  </div>
-</div>
+<mat-grid-list cols="2" >
+  <mat-card class="product-card">
+    <mat-grid-tile>
+      <swiper-container *ngIf="product?.images" navigation="true" class="mySwiper" appSwiper #swiper [config]="swiperConfig"
+      thumbs-swiper=".mySwiper2" (slidechange)="slideChange($event)">
+      <swiper-slide *ngFor="let item of product!.images">
+        <img class="swiper-image ratio ratio-4x3" [src]="item" alt="Product Image">
+      </swiper-slide>
+    </swiper-container>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card-content>
+        <mat-card-title>{{product?.title}}</mat-card-title>
+        <p>{{product?.category}}</p>
+        <p>{{product?.description}}</p>
+        <p>{{product?.discountPercentage}}</p>
+        <p>{{product?.rating}}</p>
+        <p>{{product?.stock}}</p>
+        <p>{{product?.thumbnail}}</p>
+        <p>{{product?.thumbnail}}</p>
+        <mat-card-footer>{{product?.price}}</mat-card-footer>
+      </mat-card-content>
+      <mat-card-actions>
+      </mat-card-actions>
+    </mat-grid-tile>
+  </mat-card>
+</mat-grid-list>
