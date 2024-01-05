@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { ProductsListPageComponent } from './pages/products-list-page/products-list-page.component';
@@ -15,6 +15,9 @@ import { ProductListItemComponent } from './pages/product-list-item/product-list
     ProductsRoutingModule,
     SharedModule
   ],
-  providers:[ProductsService]
+  providers:[ProductsService],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class ProductsModule { }
