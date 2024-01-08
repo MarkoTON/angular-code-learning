@@ -7,9 +7,10 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ProductsService } from './service/products.service';
 import { ProductListItemComponent } from './pages/product-list-item/product-list-item.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
 
 @NgModule({
-  declarations: [ProductPageComponent, ProductsListPageComponent, ProductsFilterComponent, ProductListItemComponent],
+  declarations: [ProductPageComponent, ProductsListPageComponent, ProductsFilterComponent, ProductListItemComponent, CartPageComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,
