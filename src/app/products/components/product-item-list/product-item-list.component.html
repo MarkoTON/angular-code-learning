@@ -19,7 +19,7 @@
       <!-- Position Column -->
       <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
       </ng-container>
 
       <!-- Name Column -->
@@ -47,6 +47,9 @@
   </mat-grid-tile>
   <mat-grid-tile colspan="1">
     <p>Ovde ce biti kalkulacija</p>
+    <ul>
+      <li *ngFor="let item of cartItems">{{ item.id }}</li>
+    </ul>
   </mat-grid-tile>
 </mat-grid-list>
 

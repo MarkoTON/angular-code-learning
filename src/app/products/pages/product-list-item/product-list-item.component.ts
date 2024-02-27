@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../product';
+import { CartService } from '../../service/cart.service';
 
 @Component({
   selector: 'app-product-list-item',
@@ -9,7 +10,11 @@ import { Product } from '../../product';
 export class ProductListItemComponent {
   @Input({ required: true }) item!: Product;
 
-  constructor() {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {}
+
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+  }
 }

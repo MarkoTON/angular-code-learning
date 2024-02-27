@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
+import { CartService } from '../../service/cart.service';
 
 export interface PeriodicElement {
   name: string;
@@ -28,6 +29,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ProductItemListComponent {
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  cartItems: any[] = [];
 
   displayedColumns: string[] = [
     'select',
@@ -37,6 +39,12 @@ export class ProductItemListComponent {
     'symbol',
   ];
   selection = new SelectionModel<PeriodicElement>(true, []);
+
+  constructor(private cartService: CartService){
+    this.cartService.cartItems$.subscribe(items => {
+      this.cartItems = items;
+    });
+  }
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
