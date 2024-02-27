@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
 import { CartService } from '../../service/cart.service';
+import { Observable } from 'rxjs';
 
 export interface PeriodicElement {
   name: string;
@@ -29,7 +30,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ProductItemListComponent {
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  cartItems: any[] = [];
+  cartItems$!: Observable<any[]>;
 
   displayedColumns: string[] = [
     'select',
@@ -40,10 +41,12 @@ export class ProductItemListComponent {
   ];
   selection = new SelectionModel<PeriodicElement>(true, []);
 
-  constructor(private cartService: CartService){
-    this.cartService.cartItems$.subscribe(items => {
-      this.cartItems = items;
-    });
+  constructor(private cartService: CartService) {
+
+  }
+
+  ngOnInit(): void {
+    this.cartItems$ = this.cartService.cartItems$;
   }
 
   /** Whether the number of selected elements matches the total number of rows. */
@@ -68,8 +71,7 @@ export class ProductItemListComponent {
     if (!row) {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
-      row.position + 1
-    }`;
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1
+      }`;
   }
 }

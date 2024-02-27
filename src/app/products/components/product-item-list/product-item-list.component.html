@@ -48,7 +48,7 @@
   <mat-grid-tile colspan="1">
     <p>Ovde ce biti kalkulacija</p>
     <ul>
-      <li *ngFor="let item of cartItems">{{ item.id }}</li>
+      <li *ngFor="let item of cartItems$ | async">{{ item.id }}</li>
     </ul>
   </mat-grid-tile>
 </mat-grid-list>
