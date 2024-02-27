@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [NavbarComponent],
@@ -23,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatFormFieldModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTableModule,
+    MatCheckboxModule
   ],
   exports: [
     RouterModule,
@@ -36,7 +40,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     NavbarComponent,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTableModule,
+    MatCheckboxModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

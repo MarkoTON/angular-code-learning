@@ -12,6 +12,9 @@
     <button>
       <a [routerLink]="[item?.id]">Read More..</a>
     </button>
+    <button (click)="addToCart(item)">
+     Add to card
+    </button>
   </mat-card-actions>
   <mat-card-footer>{{item!.price}}</mat-card-footer>
 </mat-card>
