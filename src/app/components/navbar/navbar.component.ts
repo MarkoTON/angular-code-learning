@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable, takeUntil } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { CartService } from 'src/app/products/service/cart.service';
 
 @Component({
@@ -10,13 +10,14 @@ import { CartService } from 'src/app/products/service/cart.service';
 export class NavbarComponent {
   cartItems$: Observable<any[]> = this.cartService.cartItems$;
   dataSource!: number;
+  private destroy$: Subject<void> = new Subject<void>();
 
   constructor(private cartService: CartService) {
 
   }
 
   ngOnInit(): void {
-    this.cartItems$.subscribe(items => {
+    this.cartItems$.pipe(takeUntil(this.destroy$)).subscribe(items => {
       console.log(items);
       this.dataSource = items.length
     });
