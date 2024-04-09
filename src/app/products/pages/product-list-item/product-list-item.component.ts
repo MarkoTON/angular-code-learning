@@ -15,6 +15,7 @@ export class ProductListItemComponent {
   ngOnInit(): void {}
 
   addToCart(product: Product) {
+    console.log(product);
     const productCart = {
       id: product.id,
       title: product.title,
