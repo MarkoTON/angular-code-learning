@@ -22,4 +22,9 @@ export class NavbarComponent {
       this.dataSource = items.length
     });
   }
+
+  ngOnDestroy(){
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 }
