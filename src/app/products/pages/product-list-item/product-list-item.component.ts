@@ -14,7 +14,17 @@ export class ProductListItemComponent {
 
   ngOnInit(): void {}
 
-  addToCart(product: any) {
-    this.cartService.addToCart(product);
+  addToCart(product: Product) {
+    console.log(product);
+    const productCart = {
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      discountPercentage: product.discountPercentage,
+      stock: product.stock,
+      brand: product.brand,
+      thumbnail: product.thumbnail
+    };
+    this.cartService.addToCart(productCart);
   }
 }
