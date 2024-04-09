@@ -1,14 +1,24 @@
 import { Component } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
-import { MatTableDataSource } from '@angular/material/table';
 import { CartService } from '../../service/cart.service';
-import { Observable } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
+import { MatTableDataSource } from '@angular/material/table';
 
 export interface PeriodicElement {
   name: string;
   position: number;
   weight: number;
   symbol: string;
+}
+
+export interface ProductItem {
+  id: number;
+  title: string;
+  price: number;
+  discountPercentage: number;
+  stock: number;
+  brand: string;
+  thumbnail: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
@@ -29,30 +39,41 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./product-item-list.component.scss'],
 })
 export class ProductItemListComponent {
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  cartItems$!: Observable<any[]>;
+  cartItems$: Observable<any[]> = this.cartService.cartItems$;
+  // dataSource: any = new MatTableDataSource<any>(this.cartItems$);
+  dataSource: any[] = []
 
   displayedColumns: string[] = [
     'select',
-    'position',
-    'name',
-    'weight',
-    'symbol',
+    'id',
+    'title',
+    'price',
+    'brand',
   ];
   selection = new SelectionModel<PeriodicElement>(true, []);
+  private destroy$: Subject<void> = new Subject<void>();
 
   constructor(private cartService: CartService) {
 
   }
 
   ngOnInit(): void {
-    this.cartItems$ = this.cartService.cartItems$;
+    // this.cartItems$ = this.cartService.cartItems$;
+    this.cartItems$.pipe(takeUntil(this.destroy$)).subscribe(items => {
+      console.log(items);
+      this.dataSource = items
+    });
+  }
+
+  ngOnDestroy(){
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
+    const numRows = this.dataSource.length;
     return numSelected === numRows;
   }
 
@@ -63,7 +84,7 @@ export class ProductItemListComponent {
       return;
     }
 
-    this.selection.select(...this.dataSource.data);
+    this.selection.select(...this.dataSource);
   }
 
   /** The label for the checkbox on the passed row */
